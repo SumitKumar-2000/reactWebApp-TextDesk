@@ -27,9 +27,13 @@ export default function TextForm(props) {
     }
 
     const CapitalizeSentense = () => {
-        let str = text[0].toUpperCase() + text.slice(1);
-        setText(str);
-        props.showalert("Converted first character to upper case","success")
+        let str = text.split(". ");
+        for(var i=0;i<str.length;i++){
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        let firstToUpperStr = str.join(". ");
+        setText(firstToUpperStr);
+        props.showalert("Converted first character of sentence to upper case","success")
     }
 
     const clearText = () => {
